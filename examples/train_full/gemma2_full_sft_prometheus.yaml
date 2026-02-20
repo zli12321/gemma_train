@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: google/gemma-2b
+model_name_or_path: google/gemma-2b-it
 trust_remote_code: true
 
 ### method
