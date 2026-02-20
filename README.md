@@ -5,6 +5,7 @@ Fine-tune [google/gemma-2b](https://huggingface.co/google/gemma-2b) on the [Prom
 ## Setup
 
 ```bash
+git clone https://github.com/zli12321/gemma_train.git
 bash setup.sh
 ```
 
