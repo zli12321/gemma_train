@@ -1,4 +1,5 @@
 conda create -n prometheus python=3.11 
+conda init
 conda activate prometheus
 
 # For CUDA 12.1 (most common on modern servers)
