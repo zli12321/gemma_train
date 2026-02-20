@@ -1,19 +1,22 @@
-conda create -n prometheus python=3.11 
-conda init
+#!/bin/bash
+set -e
+
+conda create -n prometheus python=3.11 -y
+
+# Source conda so 'conda activate' works in a script
+eval "$(conda shell.bash hook)"
 conda activate prometheus
 
-# For CUDA 12.1 (most common on modern servers)
+# Install PyTorch (change cu121 to match your CUDA version from nvidia-smi)
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
-# For CUDA 12.4
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-
-cd ./gemma_train
-
+# Install LLaMA Factory
 pip install -e .
 
+# Install DeepSpeed for multi-GPU training
 pip install deepspeed
 
-bash run_gemma2_prometheus.sh
+# Generate training data from HuggingFace
+python convert_prometheus.py
 
-bash run_gemma2_prometheus.sh
+echo "Setup complete! Run training with: bash run_gemma2_prometheus.sh"
