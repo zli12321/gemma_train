@@ -16,9 +16,14 @@ pip install -e .
 # Install DeepSpeed for multi-GPU training
 pip install deepspeed
 
+pip install huggingface_hub
+
 # Generate training data from HuggingFace
 python convert_prometheus.py
 
 echo "Setup complete! Run training with: bash run_gemma2_prometheus.sh"
 
 conda activate prometheus
+
+
+python -c "from huggingface_hub import login; login()"
