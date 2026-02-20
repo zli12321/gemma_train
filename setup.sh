@@ -20,3 +20,5 @@ pip install deepspeed
 python convert_prometheus.py
 
 echo "Setup complete! Run training with: bash run_gemma2_prometheus.sh"
+
+conda activate prometheus
